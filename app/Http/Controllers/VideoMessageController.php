@@ -62,7 +62,7 @@ class VideoMessageController extends Controller
     public function show($id)
     {
         //
-        return view('home')->with(['video' => VideoMessage::find($id)]);
+        return response()->stream(Storage::get(VideoMessage::find($id)->location));
     }
 
     /**
