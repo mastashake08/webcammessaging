@@ -62,7 +62,7 @@ class VideoMessageController extends Controller
     public function show($id)
     {
         //
-        $stream = new VideoStream(VideoMessage::find($id)->location);
+        $stream = new \App\VideoStream(VideoMessage::find($id)->location);
         $stream->start(); 
         
     }
