@@ -16,5 +16,5 @@ Route::get('/', function () {
 });
 
 Route::auth();
-
+Route::resource('video', 'VideoMessageController');
 Route::get('/home', 'HomeController@index');
