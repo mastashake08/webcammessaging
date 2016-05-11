@@ -65,7 +65,7 @@ class VideoMessageController extends Controller
         //$stream = new \App\VideoStream(storage_path('app/').VideoMessage::find($id)->location);
         //$stream->start(); 
         //return view('watch')->with(['video' => VideoMessage::find($id)]);
-        echo asset('videos/'.VideoMessage::find($id)->location)
+        echo asset('videos/'.VideoMessage::find($id)->location);
     }
 
     /**
