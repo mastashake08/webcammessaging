@@ -25,15 +25,15 @@
                           </div>
                       </div>
 
-                      <div class="form-group{{ $errors->has('number') ? ' has-error' : '' }}">
+                      <div class="form-group{{ $errors->has('phone') ? ' has-error' : '' }}">
                           <label class="col-md-4 control-label">Recipient Phone Number</label>
 
                           <div class="col-md-6">
-                              <input type="tel" class="form-control" name="number" value="{{ old('number') }}" required="true">
+                              <input type="tel" class="form-control" name="phone" value="{{ old('phone') }}" required="true">
 
-                              @if ($errors->has('number'))
+                              @if ($errors->has('phone'))
                                   <span class="help-block">
-                                      <strong>{{ $errors->first('number') }}</strong>
+                                      <strong>{{ $errors->first('phone') }}</strong>
                                   </span>
                               @endif
                           </div>
