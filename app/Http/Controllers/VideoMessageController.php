@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Storage;
 use App\VideoMessage;
 use App\Http\Requests;
-
+use Twilio;
 class VideoMessageController extends Controller
 {
     /**
@@ -38,7 +38,7 @@ class VideoMessageController extends Controller
     public function store(Request $request)
     {
       $location = 'videos/'.str_random(10);
-      $video = Video::Create([
+      $video = VideoMessage::Create([
         'user_id' => $request->user()->id,
         'phone' => $request->phone,
         'slug' => str_random(6),
@@ -49,6 +49,8 @@ class VideoMessageController extends Controller
            $location,
            file_get_contents($request->file('video')->getRealPath())
        );
+       $message = "{$request->user()->name} has sent you a webcam message, view it directly on your phone here https://webcammessaging.com/video/{$video->id}";
+       Twilio::message($request->phone, $message);
     }
 
     /**
@@ -60,6 +62,7 @@ class VideoMessageController extends Controller
     public function show($id)
     {
         //
+        return view('/')->with(['video' => VideoMessage::find($id)]);
     }
 
     /**
