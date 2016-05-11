@@ -37,7 +37,7 @@ class VideoMessageController extends Controller
      */
     public function store(Request $request)
     {
-      $location = 'videos/'.str_random(10);
+      $location = 'videos/'.str_random(10).'.'.$request->file('video')->extension($request->file('video')->getRealPath());
       $video = VideoMessage::Create([
         'user_id' => $request->user()->id,
         'phone' => $request->phone,
