@@ -1,5 +1,4 @@
-$stream = new VideoStream($video_path);
-  $stream->start(); <?php
+<?php
 
 namespace App\Http\Controllers;
 
