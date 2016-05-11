@@ -1,4 +1,5 @@
-<?php
+$stream = new VideoStream($video_path);
+  $stream->start(); <?php
 
 namespace App\Http\Controllers;
 
@@ -62,7 +63,9 @@ class VideoMessageController extends Controller
     public function show($id)
     {
         //
-        return response()->stream(Storage::get(VideoMessage::find($id)->location));
+        $stream = new VideoStream(VideoMessage::find($id)->location);
+        $stream->start(); 
+        
     }
 
     /**
