@@ -37,6 +37,7 @@ class VideoMessageController extends Controller
      */
     public function store(Request $request)
     {
+
       $location = 'videos/'.str_random(10).'.mp4';
       $video = VideoMessage::Create([
         'user_id' => $request->user()->id,
@@ -47,7 +48,7 @@ class VideoMessageController extends Controller
         //
         Storage::put(
            $location,
-           file_get_contents($request->file('video')->getRealPath())
+           file_get_contents($request->video->getRealPath())
        );
        $message = "{$request->user()->name} has sent you a webcam message, view it directly on your phone here https://webcammessaging.com/video/{$video->id}";
        Twilio::message($request->phone, $message);
