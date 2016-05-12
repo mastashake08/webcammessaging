@@ -37,7 +37,7 @@ class VideoMessageController extends Controller
      */
     public function store(Request $request)
     {
-      dd($request->video->getClientSize());
+      dd($request->video);
       $location = 'videos/'.str_random(10).".{$request->video->guessClientExtension()}";
       $video = VideoMessage::Create([
         'user_id' => $request->user()->id,
