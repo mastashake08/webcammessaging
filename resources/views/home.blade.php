@@ -15,7 +15,7 @@
                           <label class="col-md-4 control-label">Video</label>
 
                           <div class="col-md-6">
-                              <input  type="file" name="video" accept="video/*" capture required="true">
+                              <input  type="file" name="video" accept="video/*" required="true">
 
                               @if ($errors->has('video'))
                                   <span class="help-block">
